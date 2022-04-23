@@ -121,7 +121,7 @@ function App() {
 					{err &&
 						<Text fontSize="xl" color="#fff">{err}</Text>
 					}
-					<Button mt="3" width="30%" onClick={calculate}>Calculate</Button>
+					<Button mt="3" width="50%" onClick={calculate}>Calculate</Button>
 				</Flex>
 			</Center>
 		</div >
