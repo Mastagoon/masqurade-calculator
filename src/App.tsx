@@ -39,8 +39,8 @@ function App() {
 		const weightResist = Math.floor((tmaxweight - tcurrentweight) / 100)
 		const minRate = 3 + Math.floor(cdex / 20)
 		var totalRate = baseRate + baseLevelRate + dexRate + jobLevelRate - baseLevelResist - agiResist - lukResist - weightResist
-		if (totalRate <= minRate) {
-			setComment(`The actual rate was ${totalRate}. Since it's lower than (skill_lv + dex / 20) the rate is set to ${minRate}.`)
+		if (totalRate < minRate) {
+			setComment(`The actual rate was ${totalRate}%. Since it's lower than (skill_lv + dex / 20) the rate is set to ${minRate}.`)
 			totalRate = minRate
 		}
 		setResult(`
