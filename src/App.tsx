@@ -1,4 +1,5 @@
-import { Text, Flex, Image, Center, Input, FormLabel, FormControl, Checkbox, Button } from "@chakra-ui/react";
+import { Text, Flex, Image, Center, Input, FormLabel, FormControl, Checkbox, Button, Link } from "@chakra-ui/react";
+import { FaGithub } from "react-icons/fa"
 import { useState } from "react";
 
 function App() {
@@ -57,79 +58,90 @@ function App() {
 	}
 
 	return (
-		<div>
-			<Flex my="10" width="100" alignItems="center" flexDirection="row" justifyContent="center">
-				<Flex direction="column">
-					<Text fontSize="3xl" color="#fff" fontWeight="bold">Masqurade Success Percentage Calculator</Text>
-					<Text color="#fff">This project is made to demonstrate how horrendous the official masqurade success equasion is.</Text>
-					<Text color="#fff">Formula: base level / 10 + random(dex /12 , dex / 4) + job level + 30
-						- base level / 10 + random(agi/6, agi/3) + luk / 10 + (max weight - ccurrent weight) / 100</Text>
-				</Flex>
-			</Flex>
-
-			<Center>
-				<Flex justifyContent="space-between" alignItems="start" direction="row" width="50%">
-					<Flex justifyContent="center" alignItems="center" direction="column">
-						<Text color="#fff">Shadow Chaser Stats</Text>
-						<Image src="/images/Shadow_Chaser.png" />
-						<FormControl mt="3" variant="floating" id="cblv" isRequired defaultValue={130}>
-							<Input color="#fff" value={cblv} onChange={e => setcblv(parseInt(e.target.value))} type="number" placeholder=" " isInvalid={cblv ? cblv < 0 || cblv > 250 : false} />
-							<FormLabel color="#fff">Base Level</FormLabel>
-						</FormControl>
-						<FormControl mt="3" variant="floating" id="cblv" isRequired defaultValue={130}>
-							<Input color="#fff" value={cjlvl} onChange={e => setcjlvl(parseInt(e.target.value))} type="number" placeholder=" " isInvalid={cjlvl ? cjlvl < 0 || cjlvl > 70 : false} />
-							<FormLabel color="#fff">Job Level</FormLabel>
-						</FormControl>
-						<FormControl mt="3" variant="floating" id="cdex" isRequired defaultValue={130}>
-							<Input placeholder=" " onChange={e => setcdex(parseInt(e.target.value))} type="number" isInvalid={cdex ? cdex < 0 : false} color="#fff"
-							/>
-							<FormLabel color="#fff">Total Dex</FormLabel>
-						</FormControl>
-						<Checkbox mt="3" checked={isLeto} onChange={e => setIsLeto(e.target.checked)} color="#fff">Is Leto?</Checkbox>
-					</Flex>
-					<Flex height="50%" justifyContent="center" alignItems="center" direction="column">
-						<Text color="#fff">Target Stats</Text>
-						<Image src="/images/Novice.png" />
-						<FormControl mt="3" variant="floating" id="jblv" isRequired defaultValue={130}>
-							<Input color="#fff" value={tblv} onChange={e => settblv(parseInt(e.target.value))} type="number" placeholder=" " isInvalid={tblv ? tblv < 0 || tblv > 250 : false} />
-							<FormLabel color="#fff">Base Level</FormLabel>
-						</FormControl>
-						<FormControl mt="3" variant="floating" id="jblv" isRequired defaultValue={130}>
-							<Input color="#fff" value={tagi} onChange={e => settagi(parseInt(e.target.value))} type="number" placeholder=" " />
-							<FormLabel color="#fff">Total Agi</FormLabel>
-						</FormControl>
-
-						<FormControl mt="3" variant="floating" id="jblv" isRequired defaultValue={130} >
-							<Input color="#fff" value={tluk} onChange={e => settluk(parseInt(e.target.value))} type="number" placeholder=" " />
-							<FormLabel color="#fff">Total Luk</FormLabel>
-						</FormControl>
-						<FormControl mx="3" mt="3" variant="floating" id="jblv" isRequired defaultValue={130}>
-							<Input color="#fff" value={tcurrentweight} onChange={e => settcurrentweight(parseInt(e.target.value))} type="number" placeholder=" " />
-							<FormLabel color="#fff">Current Weight</FormLabel>
-						</FormControl>
-						<FormControl mt="3" variant="floating" id="jblv" isRequired defaultValue={130}>
-							<Input color="#fff" value={tmaxweight} onChange={e => settmaxweight(parseInt(e.target.value))} type="number" placeholder=" " isInvalid={tcurrentweight && tmaxweight ? tcurrentweight > tmaxweight : false} />
-							<FormLabel color="#fff">Max Weight</FormLabel>
-						</FormControl>
+		<>
+			<div>
+				<Flex my="5" width="100" alignItems="center" flexDirection="row" justifyContent="center">
+					<Flex direction="column">
+						<Text fontSize="3xl" color="#fff" fontWeight="bold">Masqurade Success Percentage Calculator</Text>
+						<Text color="#fff">This project is made to demonstrate how horrendous the official masqurade success equasion is.</Text>
+						<Text color="#fff">Formula: base level / 10 + random(dex /12 , dex / 4) + job level + 30
+							- base level / 10 + random(agi/6, agi/3) + luk / 10 + (max weight - ccurrent weight) / 100</Text>
 					</Flex>
 				</Flex>
 
+				<Center>
+					<Flex justifyContent="space-between" alignItems="start" direction="row" width="50%">
+						<Flex justifyContent="center" alignItems="center" direction="column">
+							<Text color="#fff">Shadow Chaser Stats</Text>
+							<Image src="/images/Shadow_Chaser.png" />
+							<FormControl mt="3" variant="floating" id="cblv" isRequired defaultValue={130}>
+								<Input color="#fff" value={cblv} onChange={e => setcblv(parseInt(e.target.value))} type="number" placeholder=" " isInvalid={cblv ? cblv < 0 || cblv > 250 : false} />
+								<FormLabel color="#fff">Base Level</FormLabel>
+							</FormControl>
+							<FormControl mt="3" variant="floating" id="cblv" isRequired defaultValue={130}>
+								<Input color="#fff" value={cjlvl} onChange={e => setcjlvl(parseInt(e.target.value))} type="number" placeholder=" " isInvalid={cjlvl ? cjlvl < 0 || cjlvl > 70 : false} />
+								<FormLabel color="#fff">Job Level</FormLabel>
+							</FormControl>
+							<FormControl mt="3" variant="floating" id="cdex" isRequired defaultValue={130}>
+								<Input placeholder=" " onChange={e => setcdex(parseInt(e.target.value))} type="number" isInvalid={cdex ? cdex < 0 : false} color="#fff"
+								/>
+								<FormLabel color="#fff">Total Dex</FormLabel>
+							</FormControl>
+							<Checkbox mt="3" checked={isLeto} onChange={e => setIsLeto(e.target.checked)} color="#fff">Is Leto?</Checkbox>
+						</Flex>
+						<Flex height="50%" justifyContent="center" alignItems="center" direction="column">
+							<Text color="#fff">Target Stats</Text>
+							<Image src="/images/Novice.png" />
+							<FormControl mt="3" variant="floating" id="jblv" isRequired defaultValue={130}>
+								<Input color="#fff" value={tblv} onChange={e => settblv(parseInt(e.target.value))} type="number" placeholder=" " isInvalid={tblv ? tblv < 0 || tblv > 250 : false} />
+								<FormLabel color="#fff">Base Level</FormLabel>
+							</FormControl>
+							<FormControl mt="3" variant="floating" id="jblv" isRequired defaultValue={130}>
+								<Input color="#fff" value={tagi} onChange={e => settagi(parseInt(e.target.value))} type="number" placeholder=" " />
+								<FormLabel color="#fff">Total Agi</FormLabel>
+							</FormControl>
+
+							<FormControl mt="3" variant="floating" id="jblv" isRequired defaultValue={130} >
+								<Input color="#fff" value={tluk} onChange={e => settluk(parseInt(e.target.value))} type="number" placeholder=" " />
+								<FormLabel color="#fff">Total Luk</FormLabel>
+							</FormControl>
+							<FormControl mx="3" mt="3" variant="floating" id="jblv" isRequired defaultValue={130}>
+								<Input color="#fff" value={tcurrentweight} onChange={e => settcurrentweight(parseInt(e.target.value))} type="number" placeholder=" " />
+								<FormLabel color="#fff">Current Weight</FormLabel>
+							</FormControl>
+							<FormControl mt="3" variant="floating" id="jblv" isRequired defaultValue={130}>
+								<Input color="#fff" value={tmaxweight} onChange={e => settmaxweight(parseInt(e.target.value))} type="number" placeholder=" " isInvalid={tcurrentweight && tmaxweight ? tcurrentweight > tmaxweight : false} />
+								<FormLabel color="#fff">Max Weight</FormLabel>
+							</FormControl>
+						</Flex>
+					</Flex>
+
+				</Center>
+				<Center mt="5">
+					<Flex direction="column" justifyContent="center" alignItems="center">
+						{result &&
+							<Text color="#FFF">{result} </Text>
+						}
+						{comment &&
+							<Text color="#e3e3e3">{comment} </Text>
+						}
+						{err &&
+							<Text fontSize="xl" color="#fff">{err}</Text>
+						}
+					</Flex>
+				</Center>
+				<Center>
+					<Button mt="3" onClick={calculate}>Calculate</Button>
+				</Center>
+			</div >
+			<Center cursor="pointer" _hover={{
+				  opacity: "0.5"
+				}}   my={5} >
+				<Link href="https://github.com/mastagoon">
+					<FaGithub size={30} />
+				</Link>
 			</Center>
-			<Center mt="5">
-				<Flex direction="column" justifyContent="center" alignItems="center">
-					{result &&
-						<Text color="#FFF">{result} </Text>
-					}
-					{comment &&
-						<Text color="#e3e3e3">{comment} </Text>
-					}
-					{err &&
-						<Text fontSize="xl" color="#fff">{err}</Text>
-					}
-					<Button mt="3" width="50%" onClick={calculate}>Calculate</Button>
-				</Flex>
-			</Center>
-		</div >
+		</>
 	);
 }
 
